@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Visits</h2>
+<a href="{% url 'visit_create' %}">Create Visit</a>
+<ul>
+    {% for visit in visits %}
+    <li>{{ visit.patient.name }} - {{ visit.visit_date }} - <a href="{% url 'visit_update' visit.id %}">Edit</a> - <a href="{% url 'visit_delete' visit.id %}">Delete</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
