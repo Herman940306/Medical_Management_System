@@ -20,3 +20,15 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, unique=True)
+
+    def is_role(self, role):  # check if the user has a specific role
+        """
+        Check if the user has a specific role.
+
+        Args:
+            role (str): The role to check.
+
+        Returns:
+            bool: True if the user has the specified role, False otherwise.
+        """
+        return self.role == role
